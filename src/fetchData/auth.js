@@ -21,9 +21,19 @@ async function login(context, args) {
     token,
     user
   }
+}
 
+async function register(context, args) {
+  //const hashedPassword = await bcrypt.hash(args.password, 10)
+  const user = await context.prisma.prisma.createUser({
+    email: args.email,
+    password: args.password,
+    name: args.name
+  })
+  return user
 }
 
 module.exports = {
-  login
+  login,
+  register
 }
