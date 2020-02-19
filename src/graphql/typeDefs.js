@@ -33,10 +33,9 @@ const typeDefs = gql`
 
   # The "Mutation" type is the root of all GraphQL mutations.
   type Mutation {
-    #register (email: String!, password: String! name: String!)
+    register (email: String!, password: String! name: String!) : User! 
     login (email: String!, password: String!): LoginResponse!
-    addEntry (user_id: Int, from: String, until: String, description: String) : Entry
-  
+    #addEntry (user_id: Int, from: String, until: String, description: String) : Entry
   }
   
 `;
