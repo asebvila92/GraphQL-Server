@@ -16,7 +16,7 @@ function getUserOfEntry(context, parent) {
   }).user()
 }
 
-async function addEntry(context, args) {
+function addEntry(context, args) {
   return context.prisma.prisma.createEntry({
     from: args.from,
     until: args.until,
