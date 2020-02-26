@@ -10,6 +10,7 @@ const typeDefs = gql`
     token: String
     user: User
   }
+  
   type User {
     id: ID
     name: String
@@ -35,7 +36,7 @@ const typeDefs = gql`
   type Mutation {
     register (email: String!, password: String! name: String!) : User! 
     login (email: String!, password: String!): LoginResponse!
-    #addEntry (user_id: Int, from: String, until: String, description: String) : Entry
+    addEntry (user_id: ID, from: String, until: String, description: String) : Entry
   }
   
 `;

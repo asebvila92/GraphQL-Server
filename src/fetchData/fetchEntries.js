@@ -18,10 +18,14 @@ function getUserOfEntry(context, parent) {
 
 function addEntry(context, args) {
   return context.prisma.prisma.createEntry({
-    user_id: args.user_id,
     from: args.from,
     until: args.until,
-    description: args.description
+    description: args.description,
+    user: {
+      connect: {
+        id: args.user_id
+      }
+    }
   });
 }
 

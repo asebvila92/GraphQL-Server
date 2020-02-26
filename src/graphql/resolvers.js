@@ -15,7 +15,7 @@ const resolvers = {
   Mutation: {
     register: (parent, args, context) => register(context, args),
     login: (parent, args, context) => login(context, args),
-    /*addEntry: (parent, args, context) => isAuthenticated(context.user) ? addEntry(context, args) : null,*/
+    addEntry: (parent, args, context) => isAuthenticated(context.user) ? addEntry(context, args) : null,
   },
   Entry: {
     user: (parent, args, context) => isAuthenticated(context.user) ? getUserOfEntry(context, parent) : null
