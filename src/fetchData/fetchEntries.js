@@ -29,9 +29,16 @@ function addEntry(context, args) {
   });
 }
 
+function deleteEntry(context, args) {
+  return context.prisma.prisma.deleteEntry({
+    id: args.entry_id
+  })
+}
+
 module.exports = {
   getEntries,
   getEntryById,
   getUserOfEntry,
-  addEntry
+  addEntry,
+  deleteEntry
 }

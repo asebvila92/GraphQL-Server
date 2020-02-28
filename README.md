@@ -38,3 +38,42 @@ mutation adduser3{
   }
 }
 
+-----------------------------------------------------------------------------------------------
+For mutations you need to be authenticated. Put this in the headers to simulate be authenticated:
+{
+  "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFuZHJlc0BnbWFpbC5jb20iLCJuYW1lIjoiYW5kcmVzIiwicGFzc3dvcmQiOiJhbmRyZXMxMjMifQ.9bBe5Y5KfTjhU0xuoy3nz-PvXJ8tX8pJAJQ1Y4KVDKo"
+}
+
+Peste and run this mutations to save entries in Mongo DB:
+
+mutation{
+	addEntry(user_id: "5e4d565a24aa9a0007ed4f01", from: "2020-02-14T16:55:49.665Z", until: "2020-02-14T17:55:49.665Z", description: "great add 1"){
+   	description
+	}
+}
+
+mutation{
+	addEntry(user_id: "5e4d566024aa9a0007ed4f03", from: "2020-02-14T16:55:49.665Z", until: "2020-02-14T17:55:49.665Z", description: "great add 2"){
+   	description
+	}
+}
+mutation{
+	addEntry(user_id: "5e4d565d24aa9a0007ed4f02", from: "2020-02-14T16:55:49.665Z", until: "2020-02-14T17:55:49.665Z", description: "great add 3"){
+   	description
+	}
+}
+
+------------------------------------------------------------------------------------------
+example of query: 
+
+{
+  entries{
+    id
+    description
+    user{
+      id
+      name
+    }
+  }
+}
+
