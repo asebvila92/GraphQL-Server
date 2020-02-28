@@ -1,5 +1,5 @@
 const { isAuthenticated } = require('../helpers/auth');
-const { getEntryById, getUserOfEntry, getEntries, addEntry } = require('../fetchData/fetchEntries');
+const { getEntryById, getUserOfEntry, getEntries, addEntry, deleteEntry } = require('../fetchData/fetchEntries');
 const { getUsers, getUserById } = require('../fetchData/fetchUsers');
 const { login, register } = require('../fetchData/auth')
 
@@ -16,6 +16,7 @@ const resolvers = {
     register: (parent, args, context) => register(context, args),
     login: (parent, args, context) => login(context, args),
     addEntry: (parent, args, context) => isAuthenticated(context.user) ? addEntry(context, args) : null,
+    deleteEntry: (parent, args, context) => isAuthenticated(context.user) ? deleteEntry(context, args) : null,
   },
   Entry: {
     user: (parent, args, context) => isAuthenticated(context.user) ? getUserOfEntry(context, parent) : null

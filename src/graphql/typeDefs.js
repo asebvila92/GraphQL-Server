@@ -37,6 +37,7 @@ const typeDefs = gql`
     register (email: String!, password: String! name: String!) : User! 
     login (email: String!, password: String!): LoginResponse!
     addEntry (user_id: ID, from: String, until: String, description: String) : Entry
+    deleteEntry (entry_id: ID!) : Entry
   }
   
 `;
