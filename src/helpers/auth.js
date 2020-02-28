@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const password = "YU5LV15jeCr4fSrAASeF59IQqGihHWyf"
+const password = "andresvila" // this must be in .env
 
 function getUser(token) {
   try {
